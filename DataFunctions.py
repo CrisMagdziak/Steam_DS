@@ -142,37 +142,3 @@ def remove_outliners(dataframe) :
     for x in dataframe.select_dtypes(include= 'number') :
         dataframe = dataframe[(dataframe[x] >= lower_tresh(dataframe[x])) & (dataframe[x] <= upper_tresh(dataframe[x]))]
     return dataframe
-
-def weight_average(group, col) :
-    """ Return weight mean
-    
-    Args:
-        group -> grouped dataframe
-        col -> dataset column
-
-    Return:
-        list with weight value
-    """
-    d = group[col]
-    w = group['Circulations']
-    return (d * w).sum() / w.sum()
-
-def barplot(data, x, y, title, col = None, col_wrap = None, hue = None) :
-    """ Create bar plot
-
-    Args:
-        data -> dataframe from where we load data
-        x -> x axis data
-        y -> y axis data
-        title -> title of chart
-        *
-        col = None -> data from specific column, 
-        col_wrap = None -> how many charts should be in 1 column, 
-        hue = None -> data show as color 
-    """
-    bar = sns.catplot(data= data, x = x, y = y, kind = 'bar', height= 8, aspect= 14/8, col = col, col_wrap = col_wrap, hue = hue)
-    bar.figure.subplots_adjust(top= 0.9)
-    bar.figure.suptitle(title)
-    bar.set_xlabels('')
-    plt.xticks(rotation = 60)
-    pass
