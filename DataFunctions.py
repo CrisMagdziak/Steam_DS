@@ -1,7 +1,3 @@
-import numpy as np
-import seaborn as sns
-import matplotlib.pyplot as plt
-
 def stats(dataframe) :
     """Function shows informations about dataset - shape and data types.
     
