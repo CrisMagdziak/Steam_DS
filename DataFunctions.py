@@ -20,8 +20,7 @@ def miss_dupl(dataframe) :
         dataframe -> dataframe from where we load data
 
     """
-    print('\n')
-    print('### Missing Values ###')
+    print('### Missing Values ### \n')
     ndf = dataframe.isna().sum()
     print(ndf[ndf > 0])
     print('\n')
@@ -30,6 +29,21 @@ def miss_dupl(dataframe) :
     print('\n')
     print('### Unique Values ###')
     print(dataframe.nunique().sum())
+
+
+
+
+def col_analysis(dataframe) :
+    """ Functions that show statistic information and plot histogram if is numeric type
+    
+        Args:
+        dataframe -> dataframe from where we load data
+
+    """
+    for col in dataframe.columns :
+        print('### Column Information ### \n')
+        print(dataframe[col].describe())
+        print('\n')
 
 def columns_bsize(dataframe) :
     """ Function shows size of each column in bytes.
