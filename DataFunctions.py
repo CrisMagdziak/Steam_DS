@@ -41,9 +41,10 @@ def col_analysis(dataframe) :
 
     """
     for col in dataframe.columns :
-        print('### Column Information ### \n')
+        print(f'### Column: {col} -  Information ### \n')
         print(dataframe[col].describe())
         print('\n')
+
 
 def columns_bsize(dataframe) :
     """ Function shows size of each column in bytes.
