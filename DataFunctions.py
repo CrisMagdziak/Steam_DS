@@ -30,7 +30,16 @@ def miss_dupl(dataframe) :
     print('### Unique Values ###')
     print(dataframe.nunique().sum())
 
+def missing_perc(dataframe) : 
+    """Function shows information about missing values with percentage of whole coulmn values.
 
+    Args:
+        dataframe -> dataframe from where we load data
+
+    """
+    print('### Missing Values % ### \n')
+    ndf = dataframe.isna().sum()
+    print((ndf[ndf > 0] / len(dataframe)) * 100)
 
 
 def col_analysis(dataframe) :
